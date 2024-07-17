@@ -8,6 +8,15 @@ public class PlayerStatus : ScriptableObject
     [Header("Config")]
     public int Level;
     [Header("Health")]
-    public int MaxHealth;
-    public int CurrentHealth;
+    public float CurrentHealth;
+    public float MaxHealth;
+    [Header("Mana")]
+    public float CurrentMana;
+    public float MaxMana;
+
+    public void ResetPlayer()
+    {
+        CurrentHealth = MaxHealth;
+        CurrentMana = MaxMana;
+    }
 }
