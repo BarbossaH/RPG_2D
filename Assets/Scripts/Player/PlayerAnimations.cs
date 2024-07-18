@@ -8,6 +8,7 @@ public class PlayerAnimations : MonoBehaviour
     private readonly int moveY = Animator.StringToHash("MoveY");
     private readonly int isMoving = Animator.StringToHash("IsMoving");
     private readonly int triggerDead = Animator.StringToHash("Dead");
+    private readonly int triggerRevive = Animator.StringToHash("Revive");
     private Animator anim;
 
     private void Awake()
@@ -25,8 +26,17 @@ public class PlayerAnimations : MonoBehaviour
         anim.SetBool(isMoving, value);
         if (value)
         {
-            anim.SetFloat(moveX, dir.x);
-            anim.SetFloat(moveY, dir.y);
+            SetMoveDirection(dir);
         }
+    }
+    public void ResetAnimation()
+    {
+        SetMoveDirection(Vector2.down);
+        anim.SetTrigger(triggerRevive);
+    }
+    private void SetMoveDirection(Vector2 dir)
+    {
+        anim.SetFloat(moveX, dir.x);
+        anim.SetFloat(moveY, dir.y);
     }
 }
