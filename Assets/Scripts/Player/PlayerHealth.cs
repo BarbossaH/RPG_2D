@@ -16,7 +16,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            TakeDamage(1);
+            TakeDamage(10);
         }
     }
     public void TakeDamage(float damage)
@@ -24,6 +24,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         playerStatus.CurrentHealth -= damage;
         if (playerStatus.CurrentHealth <= 0)
         {
+            playerStatus.CurrentHealth = 0;
             PlayerDead();
         }
     }

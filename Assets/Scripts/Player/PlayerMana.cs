@@ -25,7 +25,6 @@ public class PlayerMana : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.M))
         {
             UseMana(1f);
-            print("Mana Used!");
         }
     }
 }
