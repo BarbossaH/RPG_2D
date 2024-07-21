@@ -62225,6 +62225,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3271159680054650162, guid: 2201c3e98630c461d93fc97247add462, type: 3}
+      propertyPath: initState
+      value: Wander
+      objectReference: {fileID: 0}
+    - target: {fileID: 3271159680054650162, guid: 2201c3e98630c461d93fc97247add462, type: 3}
+      propertyPath: states.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3271159680054650162, guid: 2201c3e98630c461d93fc97247add462, type: 3}
+      propertyPath: states.Array.data[0].stateID
+      value: Wander
+      objectReference: {fileID: 0}
     - target: {fileID: 6242536192144170622, guid: 2201c3e98630c461d93fc97247add462, type: 3}
       propertyPath: m_Name
       value: Bamboo
