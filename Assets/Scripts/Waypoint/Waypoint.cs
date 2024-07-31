@@ -12,7 +12,15 @@ public class Waypoint : MonoBehaviour
     private void Start()
     {
         EntityPosition = transform.position;
+        gameStarted = true;
     }
+
+    public Vector3 GetPosition(int pointIndex)
+    {
+        return EntityPosition + points[pointIndex];
+    }
+
+    //this method is called when I check the scene vew, not the game view.
     private void OnDrawGizmos()
     {
         //if we are not in play mode and transform's position doesn't change

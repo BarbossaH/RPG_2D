@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 799578074329399708}
   - component: {fileID: 7916617716789016872}
   - component: {fileID: 4004584653801511479}
+  - component: {fileID: 2532854457718071296}
+  - component: {fileID: 858923092473195834}
   m_Layer: 6
   m_Name: Snake4
   m_TagString: Untagged
@@ -205,3 +207,29 @@ MonoBehaviour:
   speed: 1.5
   wanderTime: 1
   moveRadius: 2
+--- !u!114 &2532854457718071296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3988622251170816122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fe511132b93241bdbd9971db9944e41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+--- !u!114 &858923092473195834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3988622251170816122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85876fcdbfe4648aaafb6e7027c990ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: []

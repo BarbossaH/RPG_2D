@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 3732772040679968114}
   - component: {fileID: 2453800732663764626}
   - component: {fileID: 4739420531498113109}
+  - component: {fileID: 9024962225533558101}
+  - component: {fileID: 6173635742060748436}
   m_Layer: 6
   m_Name: Beast
   m_TagString: Untagged
@@ -205,3 +207,29 @@ MonoBehaviour:
   speed: 1.5
   wanderTime: 1
   moveRadius: 2
+--- !u!114 &9024962225533558101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5153556807912617506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85876fcdbfe4648aaafb6e7027c990ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: []
+--- !u!114 &6173635742060748436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5153556807912617506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fe511132b93241bdbd9971db9944e41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0

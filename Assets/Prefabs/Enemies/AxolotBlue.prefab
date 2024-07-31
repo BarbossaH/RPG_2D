@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 3306578695811333777}
   - component: {fileID: 856339366671509831}
   - component: {fileID: 1290318280880203135}
+  - component: {fileID: 399614899901642708}
+  - component: {fileID: 5760111229636400310}
   m_Layer: 6
   m_Name: AxolotBlue
   m_TagString: Untagged
@@ -205,3 +207,29 @@ MonoBehaviour:
   speed: 1.5
   wanderTime: 1
   moveRadius: 2
+--- !u!114 &399614899901642708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860464384612523500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85876fcdbfe4648aaafb6e7027c990ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: []
+--- !u!114 &5760111229636400310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860464384612523500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fe511132b93241bdbd9971db9944e41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0

@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 7347561466943481059}
   - component: {fileID: 6001472829215169348}
   - component: {fileID: 5518366433356181716}
+  - component: {fileID: 2893724050181068381}
+  - component: {fileID: 6861420633053278959}
   m_Layer: 6
   m_Name: Flam
   m_TagString: Untagged
@@ -205,3 +207,29 @@ MonoBehaviour:
   speed: 1.5
   wanderTime: 1
   moveRadius: 2
+--- !u!114 &2893724050181068381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547265531742837396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fe511132b93241bdbd9971db9944e41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+--- !u!114 &6861420633053278959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547265531742837396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85876fcdbfe4648aaafb6e7027c990ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: []

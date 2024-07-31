@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 2016591228877377359}
   - component: {fileID: 1186192627478962718}
   - component: {fileID: 7741747243423474562}
+  - component: {fileID: 453009848421115038}
+  - component: {fileID: 9170593418116915581}
   m_Layer: 6
   m_Name: Snake
   m_TagString: Untagged
@@ -184,11 +186,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87d0948ca68d8420da1607e42c353f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initState: Wander
+  initState: Patrol
   states:
-  - stateID: Wander
+  - stateID: Patrol
     Actions:
-    - {fileID: 7741747243423474562}
+    - {fileID: 9170593418116915581}
     Transitions: []
 --- !u!114 &7741747243423474562
 MonoBehaviour:
@@ -205,3 +207,32 @@ MonoBehaviour:
   speed: 3
   wanderTime: 1
   moveRadius: 2
+--- !u!114 &453009848421115038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6782659887149985459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85876fcdbfe4648aaafb6e7027c990ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points:
+  - {x: -2.0883064, y: 1.5814373, z: 0}
+  - {x: 3.183155, y: 1.4395132, z: 0}
+  - {x: 3.4670029, y: -1.1353911, z: 0}
+--- !u!114 &9170593418116915581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6782659887149985459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fe511132b93241bdbd9971db9944e41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1.5
