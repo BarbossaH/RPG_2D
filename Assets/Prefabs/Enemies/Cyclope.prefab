@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4755236203199869843}
   - component: {fileID: 592538811742599603}
   - component: {fileID: 7549208166248616121}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cyclope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,4 +204,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.5
   wanderTime: 1
-  moveRange: {x: 2, y: 2}
+  moveRadius: 2

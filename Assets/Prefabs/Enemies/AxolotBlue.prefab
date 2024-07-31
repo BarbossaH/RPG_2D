@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3306578695811333777}
   - component: {fileID: 856339366671509831}
   - component: {fileID: 1290318280880203135}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AxolotBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,4 +204,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.5
   wanderTime: 1
-  moveRange: {x: 2, y: 2}
+  moveRadius: 2

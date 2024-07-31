@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2209810783563673957}
   - component: {fileID: 3271159680054650162}
   - component: {fileID: 4429514263029584138}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bamboo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,4 +204,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.5
   wanderTime: 1
-  moveRange: {x: 3, y: 3}
+  moveRadius: 2

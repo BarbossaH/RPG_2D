@@ -7,7 +7,9 @@ public class ActionWander : FSMAction
     [Header("Config")]
     [SerializeField] private float speed;
     [SerializeField] private float wanderTime;
-    [SerializeField] private Vector2 moveRange;
+    [SerializeField] private float moveRadius;
+
+    private Vector3 spawnPosition;
 
     private Vector3 movePosition; //to store the next position to be moved to
     private Vector3 moveDir;
@@ -19,7 +21,8 @@ public class ActionWander : FSMAction
     }
     private void Start()
     {
-        // timer = wanderTime;
+        timer = wanderTime;
+        spawnPosition = transform.position;
         GetNewDestinationPosition();
     }
     public override void Act()
@@ -43,19 +46,19 @@ public class ActionWander : FSMAction
 
     private void GetNewDestinationPosition()
     {
-        float randomX = Random.Range(-moveRange.x, moveRange.x);
-        float randomY = Random.Range(-moveRange.y, moveRange.y);
+        float randomX = Random.Range(-moveRadius, moveRadius);
+        float randomY = Random.Range(-moveRadius, moveRadius);
         //because the direction used normalized as the multiplier
-        movePosition = transform.position + new Vector3(randomX, randomY);
+        movePosition = spawnPosition + new Vector3(randomX, randomY);
         moveDir = (movePosition - transform.position).normalized;
     }
 
     private void OnDrawGizmosSelected()
     {
-        if (moveRange != Vector2.zero)
+        if (moveRadius != 0)
         {
             Gizmos.color = Color.cyan;
-            Gizmos.DrawWireCube(transform.position, moveRange * 2);
+            Gizmos.DrawWireSphere(transform.position, moveRadius * 2);
             Gizmos.DrawLine(transform.position, movePosition);
         }
     }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 245549647421233830}
   - component: {fileID: 6882344047851483347}
   - component: {fileID: 6419756203704673673}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Racoon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,4 +204,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.5
   wanderTime: 1
-  moveRange: {x: 2, y: 2}
+  moveRadius: 2

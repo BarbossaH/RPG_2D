@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3051348944716618404}
   - component: {fileID: 1639459063626742184}
   - component: {fileID: 3321408625906153492}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Musroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,4 +204,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.5
   wanderTime: 1
-  moveRange: {x: 2, y: 2}
+  moveRadius: 2

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 371115775967632442}
   - component: {fileID: 9147555843221040987}
   - component: {fileID: 5859079008988221018}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Butterfly
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,4 +204,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.5
   wanderTime: 1
-  moveRange: {x: 2, y: 2}
+  moveRadius: 2

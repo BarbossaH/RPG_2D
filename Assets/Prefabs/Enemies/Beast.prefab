@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3732772040679968114}
   - component: {fileID: 2453800732663764626}
   - component: {fileID: 4739420531498113109}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Beast
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,4 +204,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.5
   wanderTime: 1
-  moveRange: {x: 2, y: 2}
+  moveRadius: 2

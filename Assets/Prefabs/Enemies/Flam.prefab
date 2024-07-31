@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7347561466943481059}
   - component: {fileID: 6001472829215169348}
   - component: {fileID: 5518366433356181716}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Flam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,4 +204,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.5
   wanderTime: 1
-  moveRange: {x: 2, y: 2}
+  moveRadius: 2

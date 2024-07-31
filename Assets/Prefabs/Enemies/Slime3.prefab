@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6681116463021634410}
   - component: {fileID: 423691524192583218}
   - component: {fileID: 6075394737277626446}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slime3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,4 +204,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.5
   wanderTime: 1
-  moveRange: {x: 2, y: 2}
+  moveRadius: 2

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 799578074329399708}
   - component: {fileID: 7916617716789016872}
   - component: {fileID: 4004584653801511479}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Snake4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,4 +204,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.5
   wanderTime: 1
-  moveRange: {x: 2, y: 2}
+  moveRadius: 2
