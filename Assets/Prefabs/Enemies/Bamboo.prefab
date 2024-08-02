@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 4429514263029584138}
   - component: {fileID: 5579841669497497913}
   - component: {fileID: 3572706809925886608}
+  - component: {fileID: 5638270077224788430}
+  - component: {fileID: 3779290859749799679}
   m_Layer: 6
   m_Name: Bamboo
   m_TagString: Untagged
@@ -191,7 +193,16 @@ MonoBehaviour:
   - stateID: Wander
     Actions:
     - {fileID: 4429514263029584138}
-    Transitions: []
+    Transitions:
+    - Decision: {fileID: 5638270077224788430}
+      TrueState: Chase
+      FalseState: 
+  - stateID: Chase
+    Actions: []
+    Transitions:
+    - Decision: {fileID: 5638270077224788430}
+      TrueState: Chase
+      FalseState: Wander
 --- !u!114 &4429514263029584138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,3 +244,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+--- !u!114 &5638270077224788430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6242536192144170622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 515db88d04fc445e1ac3ccb16be3b1b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectRange: 5
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!114 &3779290859749799679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6242536192144170622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 088e45a5f693b4081b735eb6d1d2802a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseSpeed: 3

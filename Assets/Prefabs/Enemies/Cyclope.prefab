@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 7549208166248616121}
   - component: {fileID: 9108392245341235935}
   - component: {fileID: 2633811605957909499}
+  - component: {fileID: 6735328076601288651}
+  - component: {fileID: 6620695383786961441}
   m_Layer: 6
   m_Name: Cyclope
   m_TagString: Untagged
@@ -191,7 +193,16 @@ MonoBehaviour:
   - stateID: Wander
     Actions:
     - {fileID: 7549208166248616121}
-    Transitions: []
+    Transitions:
+    - Decision: {fileID: 6735328076601288651}
+      TrueState: Chase
+      FalseState: Wander
+  - stateID: Chase
+    Actions: []
+    Transitions:
+    - Decision: {fileID: 6735328076601288651}
+      TrueState: Chase
+      FalseState: Wander
 --- !u!114 &7549208166248616121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,3 +244,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+--- !u!114 &6735328076601288651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5666493212483703614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 515db88d04fc445e1ac3ccb16be3b1b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectRange: 5
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!114 &6620695383786961441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5666493212483703614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 088e45a5f693b4081b735eb6d1d2802a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseSpeed: 3

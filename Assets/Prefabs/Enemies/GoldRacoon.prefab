@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 4317776443162149329}
   - component: {fileID: 8223509831011409373}
   - component: {fileID: 5195660227880989935}
+  - component: {fileID: 8004162554849796931}
+  - component: {fileID: 3832384312644913450}
   m_Layer: 6
   m_Name: GoldRacoon
   m_TagString: Untagged
@@ -191,7 +193,16 @@ MonoBehaviour:
   - stateID: Wander
     Actions:
     - {fileID: 4317776443162149329}
-    Transitions: []
+    Transitions:
+    - Decision: {fileID: 8004162554849796931}
+      TrueState: Chase
+      FalseState: Wander
+  - stateID: Chase
+    Actions: []
+    Transitions:
+    - Decision: {fileID: 8004162554849796931}
+      TrueState: Chase
+      FalseState: Wander
 --- !u!114 &4317776443162149329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,3 +244,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: []
+--- !u!114 &8004162554849796931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2165338530582794818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 515db88d04fc445e1ac3ccb16be3b1b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectRange: 5
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!114 &3832384312644913450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2165338530582794818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 088e45a5f693b4081b735eb6d1d2802a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseSpeed: 3

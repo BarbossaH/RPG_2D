@@ -14,11 +14,11 @@ public class ActionWander : FSMAction
     private Vector3 movePosition; //to store the next position to be moved to
     private Vector3 moveDir;
     private float timer; // to control wander time variable
-    private Rigidbody2D rb;
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
+    // private Rigidbody2D rb;
+    // private void Awake()
+    // {
+    //     rb = GetComponent<Rigidbody2D>();
+    // }
     private void Start()
     {
         timer = wanderTime;
@@ -33,8 +33,8 @@ public class ActionWander : FSMAction
         Vector3 movement = moveDir * (speed * Time.deltaTime);
         if (Vector3.Distance(transform.position, movePosition) >= 0.5f)
         {
-            // transform.Translate(movement);
-            rb.MovePosition(transform.position + movement);
+            transform.Translate(movement);
+            // rb.MovePosition(transform.position + movement);
         }
 
         if (timer <= 0)

@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 4004584653801511479}
   - component: {fileID: 2532854457718071296}
   - component: {fileID: 858923092473195834}
+  - component: {fileID: 6579488836893110216}
+  - component: {fileID: 3491532654491590288}
   m_Layer: 6
   m_Name: Snake4
   m_TagString: Untagged
@@ -186,12 +188,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87d0948ca68d8420da1607e42c353f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initState: Wander
+  initState: Patrol
   states:
-  - stateID: Wander
+  - stateID: Patrol
     Actions:
-    - {fileID: 4004584653801511479}
-    Transitions: []
+    - {fileID: 2532854457718071296}
+    Transitions:
+    - Decision: {fileID: 6579488836893110216}
+      TrueState: Chase
+      FalseState: Patrol
+  - stateID: Chase
+    Actions: []
+    Transitions:
+    - Decision: {fileID: 6579488836893110216}
+      TrueState: Chase
+      FalseState: Patrol
 --- !u!114 &4004584653801511479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe511132b93241bdbd9971db9944e41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 2
 --- !u!114 &858923092473195834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,4 +243,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85876fcdbfe4648aaafb6e7027c990ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: []
+  points:
+  - {x: 2.5381699, y: 1.0383408, z: 0}
+  - {x: -1.3556137, y: 2.3074248, z: 0}
+  - {x: -1.5286674, y: -1.6151981, z: 0}
+--- !u!114 &6579488836893110216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3988622251170816122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 515db88d04fc445e1ac3ccb16be3b1b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectRange: 5
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!114 &3491532654491590288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3988622251170816122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 088e45a5f693b4081b735eb6d1d2802a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseSpeed: 3

@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 4739420531498113109}
   - component: {fileID: 9024962225533558101}
   - component: {fileID: 6173635742060748436}
+  - component: {fileID: 3873416668830944829}
+  - component: {fileID: 878248716013672186}
   m_Layer: 6
   m_Name: Beast
   m_TagString: Untagged
@@ -191,7 +193,16 @@ MonoBehaviour:
   - stateID: Wander
     Actions:
     - {fileID: 4739420531498113109}
-    Transitions: []
+    Transitions:
+    - Decision: {fileID: 3873416668830944829}
+      TrueState: Chase
+      FalseState: Wander
+  - stateID: Chase
+    Actions: []
+    Transitions:
+    - Decision: {fileID: 3873416668830944829}
+      TrueState: Chase
+      FalseState: Wander
 --- !u!114 &4739420531498113109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,8 +215,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49e331d4e982c4ca28f43a6cfd2dc7a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.5
-  wanderTime: 1
+  speed: 2
+  wanderTime: 2
   moveRadius: 2
 --- !u!114 &9024962225533558101
 MonoBehaviour:
@@ -233,3 +244,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+--- !u!114 &3873416668830944829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5153556807912617506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 515db88d04fc445e1ac3ccb16be3b1b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectRange: 5
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!114 &878248716013672186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5153556807912617506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 088e45a5f693b4081b735eb6d1d2802a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseSpeed: 3

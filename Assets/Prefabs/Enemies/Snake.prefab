@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 7741747243423474562}
   - component: {fileID: 453009848421115038}
   - component: {fileID: 9170593418116915581}
+  - component: {fileID: 5543100490527667112}
+  - component: {fileID: 76409598780017853}
   m_Layer: 6
   m_Name: Snake
   m_TagString: Untagged
@@ -191,7 +193,17 @@ MonoBehaviour:
   - stateID: Patrol
     Actions:
     - {fileID: 9170593418116915581}
-    Transitions: []
+    Transitions:
+    - Decision: {fileID: 5543100490527667112}
+      TrueState: Chase
+      FalseState: Patrol
+  - stateID: Chase
+    Actions:
+    - {fileID: 76409598780017853}
+    Transitions:
+    - Decision: {fileID: 5543100490527667112}
+      TrueState: Chase
+      FalseState: Patrol
 --- !u!114 &7741747243423474562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,3 +248,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
+--- !u!114 &5543100490527667112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6782659887149985459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 515db88d04fc445e1ac3ccb16be3b1b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectRange: 5
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!114 &76409598780017853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6782659887149985459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 088e45a5f693b4081b735eb6d1d2802a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseSpeed: 3

@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 6075394737277626446}
   - component: {fileID: 1644945769310159795}
   - component: {fileID: 7974626971593765636}
+  - component: {fileID: 1319976464794119228}
+  - component: {fileID: 5495383122971661421}
   m_Layer: 6
   m_Name: Slime3
   m_TagString: Untagged
@@ -186,12 +188,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87d0948ca68d8420da1607e42c353f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initState: Wander
+  initState: Patrol
   states:
-  - stateID: Wander
+  - stateID: Patrol
     Actions:
-    - {fileID: 6075394737277626446}
-    Transitions: []
+    - {fileID: 1644945769310159795}
+    Transitions:
+    - Decision: {fileID: 1319976464794119228}
+      TrueState: Chase
+      FalseState: Patrol
+  - stateID: Chase
+    Actions: []
+    Transitions:
+    - Decision: {fileID: 1319976464794119228}
+      TrueState: Chase
+      FalseState: Patrol
 --- !u!114 &6075394737277626446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe511132b93241bdbd9971db9944e41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 2
 --- !u!114 &7974626971593765636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,4 +243,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85876fcdbfe4648aaafb6e7027c990ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: []
+  points:
+  - {x: 1.6681404, y: 0.031180382, z: 0}
+  - {x: -1.434288, y: 0.24944115, z: 0}
+--- !u!114 &1319976464794119228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4989149824272544513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 515db88d04fc445e1ac3ccb16be3b1b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectRange: 5
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!114 &5495383122971661421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4989149824272544513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 088e45a5f693b4081b735eb6d1d2802a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseSpeed: 3

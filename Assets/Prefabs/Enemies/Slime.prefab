@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 7072551339510916278}
   - component: {fileID: 235263613362754351}
   - component: {fileID: 2347334370953698867}
+  - component: {fileID: 3731554478292932014}
+  - component: {fileID: 5192712755356868358}
   m_Layer: 6
   m_Name: Slime
   m_TagString: Untagged
@@ -191,7 +193,16 @@ MonoBehaviour:
   - stateID: Wander
     Actions:
     - {fileID: 7072551339510916278}
-    Transitions: []
+    Transitions:
+    - Decision: {fileID: 3731554478292932014}
+      TrueState: Chase
+      FalseState: Wander
+  - stateID: Chase
+    Actions: []
+    Transitions:
+    - Decision: {fileID: 3731554478292932014}
+      TrueState: Chase
+      FalseState: Wander
 --- !u!114 &7072551339510916278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,3 +244,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: []
+--- !u!114 &3731554478292932014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5607733705059739300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 515db88d04fc445e1ac3ccb16be3b1b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectRange: 5
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!114 &5192712755356868358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5607733705059739300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 088e45a5f693b4081b735eb6d1d2802a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseSpeed: 3
