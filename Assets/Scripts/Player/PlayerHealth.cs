@@ -28,6 +28,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     public void TakeDamage(float damage)
     {
         playerStatus.CurrentHealth -= damage;
+        DamageTextManger.Instance.ShowDamageText(damage, transform);
         // Debug.Log(playerStatus.CurrentHealth);
         if (playerStatus.CurrentHealth <= 0)
         {

@@ -7,6 +7,7 @@ public class PlayerAnimations : MonoBehaviour
     private readonly int moveX = Animator.StringToHash("MoveX");
     private readonly int moveY = Animator.StringToHash("MoveY");
     private readonly int isMoving = Animator.StringToHash("IsMoving");
+    private readonly int isAttacking = Animator.StringToHash("IsAttacking");
     private readonly int triggerDead = Animator.StringToHash("Dead");
     private readonly int triggerRevive = Animator.StringToHash("Revive");
     private Animator anim;
@@ -28,6 +29,11 @@ public class PlayerAnimations : MonoBehaviour
         {
             SetMoveDirection(dir);
         }
+    }
+
+    public void SetAttackAnimation(bool value)
+    {
+        anim.SetBool(isAttacking, value);
     }
     public void ResetAnimation()
     {
