@@ -7,11 +7,12 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerStatus playerStatus;
     private PlayerAnimations playerAnimations;
     private PlayerExp playerExp;
-
+    private PlayerMana playerMana;
     private void Awake()
     {
         playerAnimations = GetComponent<PlayerAnimations>();
         playerExp = GetComponent<PlayerExp>();
+        playerMana = GetComponent<PlayerMana>();
     }
 
     // public PlayerStatus PlayerStatus
@@ -26,6 +27,7 @@ public class Player : MonoBehaviour
         playerStatus.ResetPlayer();
         //reset player animation
         playerAnimations.ResetAnimation();
+        playerMana.ResetMana();
     }
 
     public void AddExp(float amount)

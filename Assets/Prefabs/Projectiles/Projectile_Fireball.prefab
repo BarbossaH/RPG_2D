@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2091453021320467926}
   - component: {fileID: 7576100769759917282}
   - component: {fileID: 6240840113705143611}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Projectile_Fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,3 +155,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c939761683d0743e59c0bb0627454a47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 3

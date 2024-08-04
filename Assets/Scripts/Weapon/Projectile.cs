@@ -9,6 +9,10 @@ public class Projectile : MonoBehaviour
 
     public Vector3 Direction { get; set; }
 
+    private void Start()
+    {
+        Direction = Vector3.up;
+    }
     private void Update()
     {
         ProjectileMove();
@@ -21,6 +25,7 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Collision");
+        Destroy(gameObject);
+        // Debug.Log("Collision");
     }
 }

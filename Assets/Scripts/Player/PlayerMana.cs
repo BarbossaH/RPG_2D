@@ -6,18 +6,16 @@ public class PlayerMana : MonoBehaviour
 {
     [Header("Config")]
     [SerializeField] private PlayerStatus playerStatus;
+    public float CurrentMana { get; private set; }
 
+    private void Start()
+    {
+        ResetMana();
+    }
     public void UseMana(float amount)
     {
-        if (playerStatus.CurrentMana >= amount)
-        {
-            // playerStatus.CurrentMana -= amount;
-            // if (playerStatus.CurrentMana <= 0f)
-            // {
-            //     playerStatus.CurrentMana = 0f;
-            // }
-            playerStatus.CurrentMana = Mathf.Max(0f, playerStatus.CurrentMana - amount);
-        }
+        playerStatus.CurrentMana = Mathf.Max(0f, playerStatus.CurrentMana - amount);
+        CurrentMana = playerStatus.CurrentMana;
     }
 
     private void Update()
@@ -26,5 +24,11 @@ public class PlayerMana : MonoBehaviour
         {
             UseMana(1f);
         }
+    }
+
+    public void ResetMana()
+    {
+        CurrentMana = playerStatus.CurrentMana;
+
     }
 }
