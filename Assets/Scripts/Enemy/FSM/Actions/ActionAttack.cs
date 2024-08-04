@@ -19,6 +19,7 @@ public class ActionAttack : FSMAction
 
     public override void Act()
     {
+        //when executing Act method, the enemy will attack player, not depending on an event.
         AttackPlayer();
     }
 

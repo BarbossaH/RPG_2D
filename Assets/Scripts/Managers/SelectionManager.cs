@@ -31,8 +31,15 @@ public class SelectionManager : MonoBehaviour
                 EnemyBrain enemyBrain = hit2D.collider.GetComponent<EnemyBrain>();
                 if (enemyBrain != null)
                 {
+                    // if (enemyBrain.TryGetComponent<EnemyHealth>(out EnemyHealth enemyHealth))
+                    // {
+                    //     enemyHealth.TakeDamage(0);
+                    // }
+                    EnemyHealth health = enemyBrain.GetComponent<EnemyHealth>();
+                    if (health.CurrentHealth <= 0) return;
                     //when clicking a game object, the object clicked will show the sprite, and the other sprite will disappear.
                     OnEnemySelectedEvent?.Invoke(enemyBrain);
+
                 }
             }
             else

@@ -25,7 +25,12 @@ public class EnemySelector : MonoBehaviour
 
   private void NoSelectionCallback()
   {
-    selectorSprite?.SetActive(false);
+    DisableSelection();
+  }
+
+  public void DisableSelection()
+  {
+    selectorSprite.SetActive(false);
   }
   private void OnEnable()
   {

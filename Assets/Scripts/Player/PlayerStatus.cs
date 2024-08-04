@@ -19,6 +19,11 @@ public class PlayerStatus : ScriptableObject
     public float ExpForNextLevel;
     public float InitialNextLevelExp; // if reset player, this variable will be set as default value to upgrade player to level 2
     [Range(1f, 100f)] public float ExpMultiplier;
+
+    [Header("Attack")]
+    public float BaseDamage;
+    public float CriticalChance;
+    public float CriticalDamage;
     public void ResetPlayer()
     {
         CurrentHealth = MaxHealth;

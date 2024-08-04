@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 public enum RotationAngel
 {
     Up = 0,
@@ -12,9 +13,15 @@ public enum RotationAngel
 public class PlayerAttack : MonoBehaviour
 {
     [Header("Config")]
+    [SerializeField] private PlayerStatus playerStatus;
     [SerializeField] private Weapon initialWeapon;
     [SerializeField] private Transform[] attackPos;
     [SerializeField] private float attackSpeed;
+    [Header("Melee Config")]
+    [SerializeField] private ParticleSystem slashFX;
+    [SerializeField] private float minDistanceMeleeAttack;
+    public Weapon CurrentWeapon { get; set; }
+
     private PlayerActions actions;
     private PlayerAnimations playerAnimations;
     private EnemyBrain enemyTarget;
@@ -36,6 +43,7 @@ public class PlayerAttack : MonoBehaviour
     private void Start()
     {
         actions.Attack.ClickAttack.performed += ctx => AttackEnemy();
+        CurrentWeapon = initialWeapon;
         // currentAttackPos = attackPos[0];
         // currentAttackRotation = (float)RotationAngel.Up;
     }
@@ -62,16 +70,48 @@ public class PlayerAttack : MonoBehaviour
         {
             playerAnimations.SetAttackAnimation(false);
 
-            if (playerMana.CurrentMana < initialWeapon.RequiredMana) yield break;
-            Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, currentAttackRotation));
-            Projectile projectile = Instantiate(initialWeapon.projectilePrefab, currentAttackPos.position, rotation);
-            // projectile.Direction = Vector3.up; //this place is very interesting, because the projectile object already has a rotation, so the 
-            playerMana.UseMana(initialWeapon.RequiredMana);
-
+            if (playerMana.CurrentMana < CurrentWeapon.RequiredMana) yield break;
+            if (CurrentWeapon.type == WeaponType.Melee)
+            {
+                MeleeAttack();
+            }
+            else if (CurrentWeapon.type == WeaponType.Magic)
+            {
+                MagicAttack();
+            }
         }
         playerAnimations.SetAttackAnimation(true);
         yield return new WaitForSeconds(attackSpeed);
         playerAnimations.SetAttackAnimation(false);
+    }
+    private void MagicAttack()
+    {
+        Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, currentAttackRotation));
+        Projectile projectile = Instantiate(CurrentWeapon.projectilePrefab, currentAttackPos.position, rotation);
+        // projectile.Direction = Vector3.up; //this place is very interesting, because the projectile object already has a rotation, so the 
+        playerMana.UseMana(CurrentWeapon.RequiredMana);
+        projectile.Damage = GetAttackDamage();
+    }
+    private void MeleeAttack()
+    {
+        slashFX.transform.position = currentAttackPos.position;
+        slashFX.Play();
+        float currentDistanceToEnemy = Vector3.Distance(enemyTarget.transform.position, transform.position);
+        if (currentDistanceToEnemy <= minDistanceMeleeAttack)
+        {
+            enemyTarget.GetComponent<IDamageable>().TakeDamage(GetAttackDamage());
+        }
+    }
+    private float GetAttackDamage()
+    {
+        float damage = playerStatus.BaseDamage;
+        damage += CurrentWeapon.Damage;
+        float randomPercentage = Random.Range(0, 100f);
+        if (randomPercentage <= playerStatus.CriticalChance)
+        {
+            damage += damage * (playerStatus.CriticalDamage / 100f);
+        }
+        return damage;
     }
     private void GetFirePos()
     {
@@ -105,8 +145,17 @@ public class PlayerAttack : MonoBehaviour
         actions.Enable();
         SelectionManager.OnEnemySelectedEvent += EnemySelectCallback;
         SelectionManager.OnNoSelectionEvent += NoEnemySelectCallback;
+        EnemyHealth.OnEnemyDieEvent += NoEnemySelectCallback;
     }
 
+    private void OnDisable()
+    {
+        actions.Disable();
+        SelectionManager.OnEnemySelectedEvent -= EnemySelectCallback;
+        SelectionManager.OnNoSelectionEvent -= NoEnemySelectCallback;
+        EnemyHealth.OnEnemyDieEvent -= NoEnemySelectCallback;
+
+    }
     private void NoEnemySelectCallback()
     {
         enemyTarget = null;
@@ -115,12 +164,5 @@ public class PlayerAttack : MonoBehaviour
     private void EnemySelectCallback(EnemyBrain enemySelected)
     {
         enemyTarget = enemySelected;
-    }
-
-    private void OnDisable()
-    {
-        actions.Disable();
-        SelectionManager.OnEnemySelectedEvent -= EnemySelectCallback;
-        SelectionManager.OnNoSelectionEvent -= NoEnemySelectCallback;
     }
 }
