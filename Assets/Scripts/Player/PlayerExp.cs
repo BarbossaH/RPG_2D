@@ -6,6 +6,7 @@ public class PlayerExp : MonoBehaviour
 
   public void AddExp(float amount)
   {
+    status.TotalExp += amount;
     status.CurrentExp += amount;
     while (status.CurrentExp >= status.ExpForNextLevel)
     {
@@ -17,6 +18,7 @@ public class PlayerExp : MonoBehaviour
   private void LevelUp()
   {
     status.Level++;
+    status.AttributesPoints += 5;
     // Debug.Log(status.Level);
     //when leveling up, the experience to reach the next leven will increase. So we need to recalculate the experience demand for the level up.
     status.ExpForNextLevel = CalculateNextExpRequired();

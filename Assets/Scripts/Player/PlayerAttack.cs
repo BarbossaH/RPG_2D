@@ -43,7 +43,7 @@ public class PlayerAttack : MonoBehaviour
     private void Start()
     {
         actions.Attack.ClickAttack.performed += ctx => AttackEnemy();
-        CurrentWeapon = initialWeapon;
+        EquipWeapon(initialWeapon);
         // currentAttackPos = attackPos[0];
         // currentAttackRotation = (float)RotationAngel.Up;
     }
@@ -101,6 +101,12 @@ public class PlayerAttack : MonoBehaviour
         {
             enemyTarget.GetComponent<IDamageable>().TakeDamage(GetAttackDamage());
         }
+    }
+
+    public void EquipWeapon(Weapon newWeapon)
+    {
+        CurrentWeapon = newWeapon;
+        playerStatus.TotalDamage = playerStatus.BaseDamage + CurrentWeapon.Damage;
     }
     private float GetAttackDamage()
     {

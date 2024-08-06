@@ -9,6 +9,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     private readonly int triggerDeath = Animator.StringToHash("triggerDeath");
     private Animator anim;
     private EnemyBrain enemy;
+    private EnemyLoot enemyLoot;
     private EnemySelector enemySelector;
 
     public static event Action OnEnemyDieEvent;
@@ -17,6 +18,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     {
         anim = GetComponent<Animator>();
         enemy = GetComponent<EnemyBrain>();
+        enemyLoot = GetComponent<EnemyLoot>();
         enemySelector = GetComponent<EnemySelector>();
     }
 
@@ -30,15 +32,21 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         DamageTextManger.Instance.ShowDamageText(damage, transform);
         if (CurrentHealth <= 0f)
         {
-            anim.SetTrigger(triggerDeath);
-            enemy.enabled = false;
-            enemySelector.DisableSelection();
-            gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
-            OnEnemyDieEvent?.Invoke();
+            DisableEnemy();
         }
         else
         {
             // DamageTextManger.Instance.ShowDamageText(damage, transform);
         }
+    }
+
+    private void DisableEnemy()
+    {
+        anim.SetTrigger(triggerDeath);
+        enemy.enabled = false;
+        enemySelector.DisableSelection();
+        gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+        OnEnemyDieEvent?.Invoke();
+        GameManager.Instance.AddPLayerExp(enemyLoot.ExpDrop);
     }
 }

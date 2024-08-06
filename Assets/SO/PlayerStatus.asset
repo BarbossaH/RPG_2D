@@ -13,14 +13,20 @@ MonoBehaviour:
   m_Name: PlayerStatus
   m_EditorClassIdentifier: 
   Level: 1
-  CurrentHealth: 70
+  CurrentHealth: 100
   MaxHealth: 100
-  CurrentMana: 50
-  MaxMana: 50
+  CurrentMana: 100
+  MaxMana: 100
   CurrentExp: 0
   ExpForNextLevel: 100
   InitialNextLevelExp: 100
   ExpMultiplier: 50
-  BaseDamage: 1
-  CriticalChance: 100
-  CriticalDamage: 100
+  BaseDamage: 2
+  CriticalChance: 10
+  CriticalDamage: 50
+  Strength: 0
+  Dexterity: 0
+  Intelligence: 0
+  AttributesPoints: 0
+  TotalExp: 0
+  TotalDamage: 10
