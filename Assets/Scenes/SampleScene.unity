@@ -3218,6 +3218,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStatus: {fileID: 11400000, guid: 11cac0ef3070e43b0a662cf42da1df96, type: 2}
+  HealthPotion: {fileID: 11400000, guid: c91073d8f3f75448a8dffed93f0e9190, type: 2}
+  ManaPotion: {fileID: 11400000, guid: c87cae33668d4408b85902a406edf6e5, type: 2}
 --- !u!114 &348802788
 MonoBehaviour:
   m_ObjectHideFlags: 0

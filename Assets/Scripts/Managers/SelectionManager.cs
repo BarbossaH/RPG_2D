@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelectionManager : MonoBehaviour
+public class SelectionManager : Singleton<SelectionManager>
 {
     public static event Action<EnemyBrain> OnEnemySelectedEvent;
     public static event Action OnNoSelectionEvent;
@@ -12,8 +12,9 @@ public class SelectionManager : MonoBehaviour
 
     private Camera mainCamera;//for get mouse point position
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         mainCamera = Camera.main;
     }
     private void Update()

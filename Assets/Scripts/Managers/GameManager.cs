@@ -1,15 +1,11 @@
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
-  public static GameManager Instance { get; private set; }
 
   [SerializeField] private Player player;
+  public Player Player => player;
 
-  private void Awake()
-  {
-    Instance = this;
-  }
   private void Update()
   {
     if (Input.GetKeyDown(KeyCode.R))

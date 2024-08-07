@@ -70,7 +70,7 @@ public class PlayerAttack : MonoBehaviour
         {
             playerAnimations.SetAttackAnimation(false);
 
-            if (playerMana.CurrentMana < CurrentWeapon.RequiredMana) yield break;
+            if (playerStatus.CurrentMana < CurrentWeapon.RequiredMana) yield break;
             if (CurrentWeapon.type == WeaponType.Melee)
             {
                 MeleeAttack();

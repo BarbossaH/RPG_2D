@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc813cbc2dc414c98a149dfb3762c1a4, type: 3}
+  m_Name: ItemWeapon_Book
+  m_EditorClassIdentifier: 
+  ID: Book
+  Name: Magic Boolk
+  Icon: {fileID: 21300000, guid: 6019e96afb2057f45930762b66648a64, type: 3}
+  Description: This is a magical book with powful magic.
+  ItemType: 0
+  IsConsumable: 0
+  IsStackable: 0
+  MaxStack: 1
+  Quantity: 0
+  weapon: {fileID: 11400000, guid: 076028cade8e1497ca4cc8c29c51500f, type: 2}

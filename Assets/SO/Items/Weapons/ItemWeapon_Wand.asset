@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc813cbc2dc414c98a149dfb3762c1a4, type: 3}
-  m_Name: ItemWeapon
+  m_Name: ItemWeapon_Wand
   m_EditorClassIdentifier: 
-  ID: 
-  Name: 
-  Icon: {fileID: 0}
-  Description: 
+  ID: Wand
+  Name: Magic Wand
+  Icon: {fileID: 21300000, guid: 3e647f6e233b720428ad75fbf1041bd0, type: 3}
+  Description: This is a magical wand with powful magic.
   ItemType: 0
   IsConsumable: 0
   IsStackable: 0
-  MaxStack: 0
+  MaxStack: 1
   Quantity: 0
-  weapon: {fileID: 0}
+  weapon: {fileID: 11400000, guid: a0b9af4b66e164b7b971467b2e1d15b6, type: 2}

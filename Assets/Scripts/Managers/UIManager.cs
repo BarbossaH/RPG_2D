@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour
+public class UIManager : Singleton<UIManager>
 {
     [Header("Status")]
     [SerializeField] private PlayerStatus playerStatus;
@@ -47,7 +47,7 @@ public class UIManager : MonoBehaviour
 
         manaBar.fillAmount = playerStatus.CurrentMana / playerStatus.MaxMana;
         manaAmount.text = playerStatus.CurrentMana.ToString("0") + " / " + playerStatus.MaxMana.ToString("0");
-
+        // Debug.Log(playerStatus.CurrentMana);
         expBar.fillAmount = playerStatus.CurrentExp / playerStatus.ExpForNextLevel;
         // expAmount.text = playerStatus.CurrentExp.ToString("0") + " / " + playerStatus.ExpForNextLevel.ToString("0");
         expAmount.text = $"{playerStatus.CurrentExp:0} / {playerStatus.ExpForNextLevel:0}";

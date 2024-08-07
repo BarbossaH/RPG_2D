@@ -33,11 +33,23 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         if (playerStatus.CurrentHealth <= 0)
         {
             playerStatus.CurrentHealth = 0;
-            PlayerDead();
+            SetPlayerDeath();
         }
     }
-
-    private void PlayerDead()
+    public bool CanRestoreHealth()
+    {
+        return playerStatus.CurrentHealth > 0 && playerStatus.CurrentHealth < playerStatus.MaxHealth;
+    }
+    public void RestoreHealth(float amount)
+    {
+        playerStatus.CurrentHealth += amount;
+        if (playerStatus.CurrentHealth >= playerStatus.MaxHealth)
+        {
+            playerStatus.CurrentHealth = playerStatus.MaxHealth;
+        }
+        // playerStatus.CurrentHealth = Mathf.Min(playerStatus.CurrentHealth + amount, playerStatus.MaxHealth);
+    }
+    private void SetPlayerDeath()
     {
         IsPlayerDead = true;
         playerAnimations.SetDeadAnimation();
