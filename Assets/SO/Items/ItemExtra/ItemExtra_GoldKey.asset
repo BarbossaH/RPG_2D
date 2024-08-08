@@ -19,5 +19,5 @@ MonoBehaviour:
   ItemType: 4
   IsConsumable: 0
   IsStackable: 1
-  MaxStack: 5
+  MaxStack: 2
   Quantity: 0

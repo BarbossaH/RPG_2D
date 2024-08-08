@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67dfcf7fbeec74110b2771b0ec2b99fc, type: 3}
-  m_Name: ItemExtra_ColdHoney
+  m_Name: ItemExtra_Calamari
   m_EditorClassIdentifier: 
-  ID: Honey
-  Name: Honey
-  Icon: {fileID: 21300000, guid: 76cf61f55054c554b8e291752713bb31, type: 3}
-  Description: Sweet golden liquid, known for its natural healing properties.
+  ID: Calamari
+  Name: Calamari
+  Icon: {fileID: 21300000, guid: 987d8d597c638b443ba212fd0ee93011, type: 3}
+  Description: One of my favorite food.
   ItemType: 3
   IsConsumable: 1
   IsStackable: 1

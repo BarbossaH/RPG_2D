@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67dfcf7fbeec74110b2771b0ec2b99fc, type: 3}
-  m_Name: ItemExtra_ColdHoney
+  m_Name: ItemExtra_SeedLarge
   m_EditorClassIdentifier: 
-  ID: Honey
-  Name: Honey
-  Icon: {fileID: 21300000, guid: 76cf61f55054c554b8e291752713bb31, type: 3}
-  Description: Sweet golden liquid, known for its natural healing properties.
+  ID: SeedLarge
+  Name: SeedLarge
+  Icon: {fileID: 21300000, guid: e7b78d782e06a1546ac11e88283cc54f, type: 3}
+  Description: SeedLarge, what is this, can it be aten?
   ItemType: 3
   IsConsumable: 1
   IsStackable: 1

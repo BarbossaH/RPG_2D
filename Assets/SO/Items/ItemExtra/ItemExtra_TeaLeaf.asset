@@ -9,16 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f343d8baa5de340b287bc042f0b809ff, type: 3}
-  m_Name: ItemManaPotion
+  m_Script: {fileID: 11500000, guid: 67dfcf7fbeec74110b2771b0ec2b99fc, type: 3}
+  m_Name: ItemExtra_TeaLeaf
   m_EditorClassIdentifier: 
-  ID: ManaPotion
-  Name: Mana Potion
-  Icon: {fileID: 21300000, guid: f39f80ff89ae10346966bfeb894a15c4, type: 3}
-  Description: Mana Potion
-  ItemType: 1
+  ID: TeaLeaf
+  Name: TeaLeaf
+  Icon: {fileID: 21300000, guid: be3f1cf93918bcb408544031f3a6c894, type: 3}
+  Description: Tea Leaf is a healthy drink.
+  ItemType: 3
   IsConsumable: 1
   IsStackable: 1
-  MaxStack: 20
+  MaxStack: 10
   Quantity: 0
-  ManaValue: 50
