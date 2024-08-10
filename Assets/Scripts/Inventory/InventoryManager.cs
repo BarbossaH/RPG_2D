@@ -11,10 +11,10 @@ public class InventoryManager : Singleton<InventoryManager>
     public InventoryItem testItm;
     public int InventorySize => inventorySize;
 
-
     private void Start()
     {
         inventoryItems = new InventoryItem[inventorySize];
+        VerifyItemsForDraw();
     }
     private void Update()
     {
@@ -23,10 +23,32 @@ public class InventoryManager : Singleton<InventoryManager>
             // inventoryItems[0] = testItm.CopyItem();
             // inventoryItems[0].Quantity = 10;
             // InventoryUI.Instance.DrawItemSlot(inventoryItems[0], 0);
-            AddItem(testItm, 18);
+            AddItem(testItm, 6);
+        }
+    }
+    public void UseItem(int index)
+    {
+        if (inventoryItems[index] == null) return;
+        if (inventoryItems[index].UseItem())
+        {
+            DecreaseItemStack(index);
         }
     }
 
+    public void RemoveItem(int index)
+    {
+        if (inventoryItems[index] == null) return;
+        inventoryItems[index].RemoveItem();
+        inventoryItems[index] = null;
+        InventoryUI.Instance.DrawItemSlot(null, index);
+    }
+
+    public void EquipItem(int index)
+    {
+        if (inventoryItems[index] == null) return;
+        if (inventoryItems[index].ItemType != ItemType.Weapon) return;
+        inventoryItems[index].EquipItem();
+    }
     public void AddItem(InventoryItem item, int quantity)
     {
         //prioritize stacking items onto stacks of the same type. If the stacks of the same type are full, them stack items in empty slots. If there are not enough space after utilizing the available slots, apply special handling procedures.
@@ -63,6 +85,16 @@ public class InventoryManager : Singleton<InventoryManager>
             }
         }
         AddItemFreeSlot(item, restAmount);
+    }
+
+    private void DecreaseItemStack(int index)
+    {
+        inventoryItems[index].Quantity--;
+        if (inventoryItems[index].Quantity <= 0)
+        {
+            inventoryItems[index] = null;
+        }
+        InventoryUI.Instance.DrawItemSlot(inventoryItems[index], index);
     }
     private List<int> CheckItemStock(string itemID)
     {
@@ -104,5 +136,16 @@ public class InventoryManager : Singleton<InventoryManager>
 
         }
         return false;
+    }
+
+    private void VerifyItemsForDraw()
+    {
+        for (int i = 0; i < inventorySize; i++)
+        {
+            if (inventoryItems[i] == null)
+            {
+                InventoryUI.Instance.DrawItemSlot(null, i);
+            }
+        }
     }
 }

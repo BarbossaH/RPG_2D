@@ -1,15 +1,17 @@
 
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour
 {
+    public static event Action<int> OnSlotSelectedEvent;
     [SerializeField] private Image itemIcon;
     [SerializeField] private Image quantityBG;
     [SerializeField] private TextMeshProUGUI itemQuantityTMP;
 
-    public int ItemIndex { get; set; }
+    public int SlotIndex { get; set; }
 
     public void UpdateSlot(InventoryItem item)
     {
@@ -25,5 +27,10 @@ public class InventorySlot : MonoBehaviour
     {
         itemIcon.gameObject.SetActive(value);
         quantityBG.gameObject.SetActive(value);
+    }
+
+    public void ClickSlot()
+    {
+        OnSlotSelectedEvent?.Invoke(SlotIndex);
     }
 }
