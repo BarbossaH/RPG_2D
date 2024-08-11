@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     private PlayerExp playerExp;
     public PlayerMana PlayerMana { get; private set; }
     public PlayerHealth PlayerHealth { get; private set; }
+    public PlayerAttack PlayerAttack { get; private set; }
 
     private void Awake()
     {
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour
         playerExp = GetComponent<PlayerExp>();
         PlayerMana = GetComponent<PlayerMana>();
         PlayerHealth = GetComponent<PlayerHealth>();
+        PlayerAttack = GetComponent<PlayerAttack>();
     }
 
     // public PlayerStatus PlayerStatus

@@ -42,8 +42,9 @@ public class PlayerAttack : MonoBehaviour
     }
     private void Start()
     {
+        WeaponManager.Instance.EquipWeapon(initialWeapon);
         actions.Attack.ClickAttack.performed += ctx => AttackEnemy();
-        EquipWeapon(initialWeapon);
+        // EquipWeapon(initialWeapon);
         // currentAttackPos = attackPos[0];
         // currentAttackRotation = (float)RotationAngel.Up;
     }

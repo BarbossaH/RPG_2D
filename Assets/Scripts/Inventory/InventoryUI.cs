@@ -14,10 +14,16 @@ public class InventoryUI : Singleton<InventoryUI>
     private List<InventorySlot> slotList = new List<InventorySlot>();
     private int inventorySize;
 
+    protected override void Awake()
+    {
+        base.Awake();
+        inventorySize = InventoryManager.Instance.InventorySize;
+        InitInventory();
+    }
     private void Start()
     {
         inventorySize = InventoryManager.Instance.InventorySize;
-        InitInventory();
+        // InitInventory();
     }
     private void InitInventory()
     {
@@ -36,7 +42,7 @@ public class InventoryUI : Singleton<InventoryUI>
     {
         if (item == null)
         {
-            slotList[index].ShowSlotInformation(false);
+            // slotList[index].ShowSlotInformation(false);
 
             return;
         }
@@ -52,6 +58,12 @@ public class InventoryUI : Singleton<InventoryUI>
     {
         if (CurrentSlot == null) return;
         InventoryManager.Instance.RemoveItem(CurrentSlot.SlotIndex);
+    }
+
+    public void EquipItem()
+    {
+        if (CurrentSlot == null) return;
+        InventoryManager.Instance.EquipItem(CurrentSlot.SlotIndex);
     }
     private void OnSelectSlotCallback(int index)
     {

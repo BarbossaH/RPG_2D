@@ -11,11 +11,20 @@ public class InventoryManager : Singleton<InventoryManager>
     public InventoryItem testItm;
     public int InventorySize => inventorySize;
 
-    private void Start()
+
+    protected override void Awake()
     {
+        base.Awake();
         inventoryItems = new InventoryItem[inventorySize];
         VerifyItemsForDraw();
     }
+
+    private void Start()
+    {
+        // inventoryItems = new InventoryItem[inventorySize];
+        // VerifyItemsForDraw();
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.C))
@@ -144,7 +153,10 @@ public class InventoryManager : Singleton<InventoryManager>
         {
             if (inventoryItems[i] == null)
             {
-                InventoryUI.Instance.DrawItemSlot(null, i);
+                if (InventoryUI.Instance != null)
+                {
+                    InventoryUI.Instance.DrawItemSlot(null, i);
+                }
             }
         }
     }

@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class WeaponManager : MonoBehaviour
+public class WeaponManager : Singleton<WeaponManager>
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Image weaponIcon;
+    [SerializeField] private TextMeshProUGUI weaponManaTMP;
 
-    // Update is called once per frame
-    void Update()
+    public void EquipWeapon(Weapon weapon)
     {
-        
+        weaponIcon.sprite = weapon.weaponIcon;
+        weaponIcon.gameObject.SetActive(true);
+        weaponManaTMP.text = weapon.RequiredMana.ToString();
+        weaponManaTMP.gameObject.SetActive(true);
+        GameManager.Instance.Player.PlayerAttack.EquipWeapon(weapon);
     }
 }

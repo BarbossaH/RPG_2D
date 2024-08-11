@@ -17,7 +17,7 @@ public class InventorySlot : MonoBehaviour
     {
         itemIcon.sprite = item.Icon;
         itemQuantityTMP.text = item.Quantity.ToString();
-        if (item.MaxStack <= 1)
+        if (item.MaxStack <= 0)
         {
             quantityBG.gameObject.SetActive(false);
         }
@@ -25,6 +25,7 @@ public class InventorySlot : MonoBehaviour
 
     public void ShowSlotInformation(bool value)
     {
+        Debug.Log(itemIcon.gameObject.name);
         itemIcon.gameObject.SetActive(value);
         quantityBG.gameObject.SetActive(value);
     }
