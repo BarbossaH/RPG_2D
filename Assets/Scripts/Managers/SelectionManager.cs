@@ -32,15 +32,17 @@ public class SelectionManager : Singleton<SelectionManager>
                 EnemyBrain enemyBrain = hit2D.collider.GetComponent<EnemyBrain>();
                 if (enemyBrain != null)
                 {
-                    // if (enemyBrain.TryGetComponent<EnemyHealth>(out EnemyHealth enemyHealth))
-                    // {
-                    //     enemyHealth.TakeDamage(0);
-                    // }
                     EnemyHealth health = enemyBrain.GetComponent<EnemyHealth>();
-                    if (health.CurrentHealth <= 0) return;
-                    //when clicking a game object, the object clicked will show the sprite, and the other sprite will disappear.
-                    OnEnemySelectedEvent?.Invoke(enemyBrain);
-
+                    if (health.CurrentHealth <= 0)
+                    {
+                        EnemyLoot enemyLoot = enemyBrain.GetComponent<EnemyLoot>();
+                        LootManager.Instance.ShowLoot(enemyLoot);
+                    }
+                    else
+                    {
+                        //when clicking a game object, the object clicked will show the sprite, and the other sprite will disappear.
+                        OnEnemySelectedEvent?.Invoke(enemyBrain);
+                    }
                 }
             }
             else
