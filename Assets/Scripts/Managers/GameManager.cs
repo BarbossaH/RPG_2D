@@ -12,7 +12,7 @@ public class GameManager : Singleton<GameManager>
     {
       player.ResetPlayer();
     }
-    if (Input.GetKeyDown(KeyCode.E))
+    if (Input.GetKeyDown(KeyCode.B))
     {
       player.AddExp(300f);
     }

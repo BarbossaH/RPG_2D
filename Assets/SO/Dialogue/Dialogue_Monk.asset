@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682fbae4362734e94af3b858219ac7ec, type: 3}
   m_Name: Dialogue_Monk
   m_EditorClassIdentifier: 
-  Name: Monk
+  NpcName: Monk
   HeadIcon: {fileID: 21300000, guid: 06eaeab3d897712428ce8a26b403a4a7, type: 3}
   HasInteraction: 0
   DialogueType: 0
-  Dialogue:
-  - I am Julian, and I am trying myself to learn English.
-  - My English is better than before, now I need to get more confidence in this.
+  GreetingText: Hi Good Morning
+  DialogueArray:
+  - I am Julian, How can I help you?
+  - I will offer my service in every week. And I also want to pratice my English
+    so that I can help people a lot.

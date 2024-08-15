@@ -12,7 +12,7 @@ public enum DialogueType
 public class NPCDialogue : ScriptableObject
 {
     [Header("Info")]
-    public string Name;
+    public string NpcName;
     public Sprite HeadIcon;
 
     [Header("Interaction")]
@@ -20,5 +20,6 @@ public class NPCDialogue : ScriptableObject
     public DialogueType DialogueType;
 
     [Header("Dialogue")]
-    [TextArea] public string[] Dialogue;
+    public string GreetingText;
+    [TextArea] public string[] DialogueArray;
 }
