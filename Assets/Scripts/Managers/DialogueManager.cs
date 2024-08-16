@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class DialogueManager : Singleton<DialogueManager>
 {
+    //this class is responsible for setting the data of the current selected NPC into the memory, and responding the Key Board events to show the data in the interface. 
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private Image npcIcon;
     [SerializeField] private TextMeshProUGUI npmNameTMP;
