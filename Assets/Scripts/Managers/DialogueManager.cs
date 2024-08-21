@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -6,6 +7,7 @@ using UnityEngine.UI;
 
 public class DialogueManager : Singleton<DialogueManager>
 {
+    public static event Action<DialogueType> OnExtraInteractionEvent;
     //this class is responsible for setting the data of the current selected NPC into the memory, and responding the Key Board events to show the data in the interface. 
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private Image npcIcon;
@@ -64,15 +66,28 @@ public class DialogueManager : Singleton<DialogueManager>
     private void ContinueDialogue()
     {
         //this is for show the actual dialogue text which can show the real purpose on this dialogue, and managing the dialogue UI.
-        if (NPCSelected == null || dialogueQueue.Count <= 0)
+        if (NPCSelected == null)
         {
             ClearDialogueFromNpc();
+            return;
+        }
+        if (dialogueQueue.Count <= 0)
+        {
+            ClearDialogueFromNpc();
+
+            if (NPCSelected.DialogueToShow.HasInteraction)
+            {
+                //if npc has some quests, then this will send a event to quest manager to show the information
+                OnExtraInteractionEvent?.Invoke(NPCSelected.DialogueToShow.DialogueType);
+            }
+
             return;
         }
         npcDialogueTMP.text = dialogueQueue.Dequeue();
     }
     public void InitiateDialogue(NPCInteraction npc)
     {
+        //when player enter the area of the detection of the npc, this function will be called
         NPCSelected = npc;
         LoadDialogueFromNpc();
     }

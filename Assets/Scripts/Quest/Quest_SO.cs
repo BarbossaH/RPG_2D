@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Quest_")]
 public class Quest_SO : ScriptableObject
 {
+    //this class is for forming the quest data structure
     [Header("Info")]
     public string Name;
     public string ID;
