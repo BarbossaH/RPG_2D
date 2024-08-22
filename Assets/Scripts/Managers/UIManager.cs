@@ -36,6 +36,7 @@ public class UIManager : Singleton<UIManager>
 
     [Header("Extra Panels")]
     [SerializeField] private GameObject npcQuestPanel;
+    [SerializeField] private GameObject playerQuestPanel;
     /*
     I believe the real UIManager shouldn't contain so many UI elements, it should include the whole UI class and control how to show, hide and other operations.
     */
@@ -72,6 +73,10 @@ public class UIManager : Singleton<UIManager>
     {
         npcQuestPanel.SetActive(isShow);
     }
+    public void TogglePlayerQuestPanel(bool isShow)
+    {
+        playerQuestPanel.SetActive(isShow);
+    }
     private void UpdateStatePanel()
     {
         statLevelTMP.text = playerStatus.Level.ToString();
@@ -107,9 +112,6 @@ public class UIManager : Singleton<UIManager>
         PlayerUpgrade.OnPlayerUpgradeEvent += OnUpgradeCallback;
         DialogueManager.OnExtraInteractionEvent += ExtraInteractionCallback;
     }
-
-
-
     private void OnDisable()
     {
         PlayerUpgrade.OnPlayerUpgradeEvent -= OnUpgradeCallback;

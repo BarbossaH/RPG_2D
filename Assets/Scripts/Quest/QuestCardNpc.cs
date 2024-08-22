@@ -9,4 +9,13 @@ public class QuestCardNpc : QuestCard
     base.ConfigureQuestUI(quest);
     questRewardTMP.text = $"- {quest.GoldReward}  Gold\n" + $"- {quest.ExpReward}  Exp\n" + $"- {quest.QuestItemReward.Item.Name}  X  {quest.QuestItemReward.Quantity}";
   }
+
+  public void AcceptQuest()
+  {
+    if (QuestToComplete == null) return;
+    QuestToComplete.QuestAccepted = true;
+    QuestManager.Instance.AcceptQuest(QuestToComplete);
+
+    gameObject.SetActive(false);
+  }
 }
