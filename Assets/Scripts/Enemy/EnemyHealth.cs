@@ -34,6 +34,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         if (CurrentHealth <= 0f)
         {
             DisableEnemy();
+            QuestManager.Instance.AddProgress("Kill_1", 1);
         }
         else
         {

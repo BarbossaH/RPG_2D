@@ -12,6 +12,7 @@ public class QuestCard : MonoBehaviour
   public virtual void ConfigureQuestUI(Quest_SO quest)
   {
     QuestToComplete = quest;
+    Debug.Log(QuestToComplete);
     questNameTMP.text = quest.Name;
     questDescriptionTMP.text = quest.Description;
   }

@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Enemy Hunter
   ID: Kill_1
-  QuestGoal: 1
-  Description: Track down and defeat 1 enemy.
+  QuestGoal: 2
+  Description: Track down and defeat 2 enemy.
   GoldReward: 10
   ExpReward: 400
   QuestItemReward:
     Item: {fileID: 11400000, guid: c91073d8f3f75448a8dffed93f0e9190, type: 2}
     Quantity: 1
-  CurrentStatus: 0
-  QuestCompleted: 0
-  QuestAccepted: 0
+  CurrentStatus: 1
+  QuestCompleted: 1
+  QuestAccepted: 1

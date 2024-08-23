@@ -15,6 +15,32 @@ public class QuestManager : Singleton<QuestManager>
   {
     LoadQuestIntoNPCPanel();
   }
+
+  public void AcceptQuest(Quest_SO quest)
+  {
+    //this function is responsible for creating the accept quest ui due to the parameter Quest
+    QuestCardPlayer questCardPlayer = Instantiate(questCardPlayerPrefab, playerPanelContainer);
+    questCardPlayer.ConfigureQuestUI(quest);
+  }
+  public void AddProgress(string questID, int amount)
+  {
+    Quest_SO quest = GetQuestByID(questID);
+    if (quest != null && quest.QuestAccepted)
+    {
+      quest.AddProgress(amount);
+    }
+  }
+  private Quest_SO GetQuestByID(string questID)
+  {
+    foreach (Quest_SO quest in quests)
+    {
+      if (quest.ID == questID)
+      {
+        return quest;
+      }
+    }
+    return null;
+  }
   private void LoadQuestIntoNPCPanel()
   {
     for (int i = 0; i < quests.Length; i++)
@@ -24,11 +50,11 @@ public class QuestManager : Singleton<QuestManager>
     }
   }
 
-  public void AcceptQuest(Quest_SO quest)
+  private void OnEnable()
   {
-    //this function is responsible for creating the accept quest ui due to the parameter Quest
-    QuestCardPlayer questCardPlayer = Instantiate(questCardPlayerPrefab, playerPanelContainer);
-    questCardPlayer.ConfigureQuestUI(quest);
-    Debug.Log(quest);
+    foreach (Quest_SO quest in quests)
+    {
+      quest.ResetQuest();
+    }
   }
 }

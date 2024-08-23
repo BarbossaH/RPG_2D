@@ -11,7 +11,13 @@ public class QuestCardPlayer : QuestCard
 
   [SerializeField] private Image itemIcon;
   [SerializeField] private TextMeshProUGUI itemQuantityTMP;
-
+  private void Update()
+  {
+    // Debug.Log(QuestToComplete);
+    if (QuestToComplete == null) return;
+    // if (QuestToComplete.QuestCompleted) return;
+    statusTMP.text = $"Status\n{QuestToComplete.CurrentStatus}/{QuestToComplete.QuestGoal}";
+  }
   public override void ConfigureQuestUI(Quest_SO quest)
   {
     base.ConfigureQuestUI(quest);
